@@ -1,0 +1,141 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+.preview-image {
+    display: inline-block;
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: 10px;
+}
+
+    .preview-image img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+.image-tag {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    font-size: 12px;
+    padding: 5px;
+}
+
+.cancel-btn,
+.cancel-btn2 {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 12px;
+    padding: 3px;
+    background-color: black;
+    color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.imagestyle {
+    width: 150px;
+    height: 150px;
+    margin: 0px 0px 10px 10px;
+    vertical-align: initial;
+}
+
+.upload-label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.upload-container {
+    border: 1px solid black;
+}
+
+.upload-label img {
+    width: 40%;
+    height: 100%;
+    object-fit: cover;
+    margin: 12px;
+}
+/* Hide the default file input */
+#file-upload {
+    display: none;
+}
+
+/*//------------------------------------------------------------------------*/
+
+h1 {
+    font-size: 2em;
+    margin-bottom: .5rem;
+}
+
+/* Ratings widget */
+.rate {
+    display: inline-block;
+    border: 0;
+}
+    /* Hide radio */
+    .rate > input {
+        display: none;
+    }
+    /* Order correctly by floating highest to the right */
+    .rate > label {
+        float: right;
+    }
+        /* The star of the show */
+        .rate > label:before {
+            display: inline-block;
+            font-size: 2rem;
+            padding: .3rem .2rem;
+            margin: 0;
+            cursor: pointer;
+            font-family: FontAwesome;
+            content: "\f005 "; /* full star */
+        }
+
+    /* Half star trick */
+    .rate .half:before {
+        content: "\f089 "; /* half star no outline */
+        position: absolute;
+        padding-right: 0;
+    }
+/* Click + hover color */
+input:checked ~ label, /* color current and previous stars on checked */
+label:hover, label:hover ~ label, .filled {
+    color: orange;
+}
+    /* color previous stars on hover */
+
+    /* Hover highlights */
+    input:checked + label:hover, input:checked ~ label:hover, /* highlight current and previous stars */
+    input:checked ~ label:hover ~ label, /* highlight previous selected stars for new rating */
+    label:hover ~ input:checked ~ label /* highlight previous selected stars */ {
+        color: orange;
+    }
+

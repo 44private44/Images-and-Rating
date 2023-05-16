@@ -1,0 +1,83 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    var rating = 0;
+}
+@using Practice.Entities.Model
+
+@model ImageDataModel
+
+<script src="https://kit.fontawesome.com/e7b47f6d71.js" crossorigin="anonymous"></script>
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<div class="storyimageupload mb-5">
+    <label class="uploadstoryimages" for="file-upload" id="uploadvalidate">Upload your Photos</label>
+    <div class="upload-container">
+        <label for="file-upload" class="upload-label">
+            <img src="~/Images/drag-and-drop.png" alt="Choose file">
+        </label>
+        <input id="file-upload" type="file" multiple>
+    </div>
+
+    <div id="preview-container"></div>
+</div>
+
+<div class="apply_button_card mt-5">
+    <a id="submitsharestorydesign">
+        <button class="card_apply_button" id="submitsharestory">
+            Submit
+        </button>
+    </a>
+</div>
+
+<div class="apply_button_card mt-5">
+    <a id="DraftButton">
+        <button class="card_apply_button" id="Draftbtn">
+            Draft
+        </button>
+    </a>
+</div>
+
+@*
+    @foreach(var item in Model.imgRecords)
+    {
+    <img src="~/Images/MissionImages/@item.Path"
+    />
+    }*@
+
+
+<h1 class="mt-5">Half Star Rating</h1>
+
+@for (int j = 0; j < 1; j++)
+{
+
+    <fieldset class="rate" id="rating">
+       
+        @for (int i = 10; i != @Model.imgRecords.FirstOrDefault().Rating; i--)
+        {
+            <input type="radio" id="rating+@i" name="rating" value="@i" />
+            @if (i % 2 == 0)
+            {
+                <label for="rating+@i"></label>
+            }
+            else
+            {
+                <label class="half " for="rating+@i"></label>
+            }
+        }
+        @for (int i = (int)@Model.imgRecords.FirstOrDefault().Rating; i >= 1; i--)
+        {
+            <input type="radio" id="rating+@i" name="rating" value="@i" />
+            @if (i % 2 == 0)
+            {
+                <label class="filled" for="rating+@i"></label>
+            }
+            else
+            {
+                <label class="half filled" for="rating+@i"></label>
+            }
+        }
+    </fieldset>
+}
